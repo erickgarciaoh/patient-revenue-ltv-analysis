@@ -8,7 +8,7 @@ Rehacer un análisis financiero de pacientes (revenue, tipos de cita, LTV) con u
 | Fase | Descripción | Estado |
 |---|---|---|
 | 0 | Setup: estructura, git, CLAUDE.md con plan | Hecho |
-| 1 | Ingesta: BDD del proyecto + tabla raw (NVARCHAR) + SP importador del CSV (loop: ejecutar→corregir). CSV cargado y apartado | Pendiente |
+| 1 | Ingesta: BDD del proyecto + tabla raw (NVARCHAR) + SP importador del CSV (loop: ejecutar→corregir). CSV cargado y apartado | Hecho |
 | 2 | Exploración + reporte de calidad de datos; confirmar ventana temporal; fijar reglas de limpieza y la interpretación del waterfall LTV | Pendiente |
 | 3 | Transformación: SPs que limpian/castean y materializan tablas procesadas (estrella ligera) | Pendiente |
 | 4 | Análisis: 4 tareas core + funnel Tipo1→Tipo2, cohortes/retención, Pareto | Pendiente |

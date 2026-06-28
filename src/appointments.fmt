@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  BULK INSERT format file for raw.appointments (Phase 1 ingestion).
+  Maps the 5 CSV fields to the 5 data columns; row_id (IDENTITY) is intentionally
+  absent from <ROW>, so BULK INSERT lets it auto-generate.
+  Field terminator ';' on fields 1-4, CRLF on the last field (service_date).
+  Source file is UTF-8 (CODEPAGE 65001 set on the BULK INSERT statement).
+-->
+<BCPFORMAT xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <RECORD>
+  <FIELD ID="1" xsi:type="CharTerm" TERMINATOR=";"    MAX_LENGTH="100"/>
+  <FIELD ID="2" xsi:type="CharTerm" TERMINATOR=";"    MAX_LENGTH="100"/>
+  <FIELD ID="3" xsi:type="CharTerm" TERMINATOR=";"    MAX_LENGTH="100"/>
+  <FIELD ID="4" xsi:type="CharTerm" TERMINATOR=";"    MAX_LENGTH="100"/>
+  <FIELD ID="5" xsi:type="CharTerm" TERMINATOR="\r\n" MAX_LENGTH="100"/>
+ </RECORD>
+ <ROW>
+  <COLUMN SOURCE="1" NAME="revenue"          xsi:type="SQLNVARCHAR"/>
+  <COLUMN SOURCE="2" NAME="patient_id"       xsi:type="SQLNVARCHAR"/>
+  <COLUMN SOURCE="3" NAME="appointment_uid"  xsi:type="SQLNVARCHAR"/>
+  <COLUMN SOURCE="4" NAME="appointment_type" xsi:type="SQLNVARCHAR"/>
+  <COLUMN SOURCE="5" NAME="service_date"     xsi:type="SQLNVARCHAR"/>
+ </ROW>
+</BCPFORMAT>
