@@ -44,7 +44,8 @@ Adicionales (in-scope):
 - Versionado: git local desde Fase 0.
 
 ## Datos
-- Fuente: `D:\Dev\Raw-Datasets\Data_Financial_Analyst.csv` (~17.294 filas).
+- Fuente canónica (versionada en el repo): `data/raw/Data_Financial_Analyst.csv` (~17.294 filas). Copia del original en `D:\Dev\Raw-Datasets\`. El SP importador debe leer la ruta del repo, no la del disco general.
+- Nota BULK INSERT/OPENROWSET: el archivo lo lee la cuenta del servicio `MSSQL$DB001`, no el usuario. Si falla con "Access denied", es permiso de esa cuenta sobre la carpeta, no error de SQL.
 - Delimitador `;`. Columnas: ` Revenue ` (texto, formato europeo `$ 50,00` — prefijo $, espacios, coma decimal), `Patient ID`, `AdvancedMD Appointment UID`, `1/2` (tipo de cita), `Service Date` (formato `d/m/aaaa`).
 - Estructura de negocio: Tipo 1 = 11.367 citas, todas $50 fijos (intake/consulta). Tipo 2 = 5.927 citas, revenue variable. El paso 1→2 es el motor del LTV.
 - Importar TODO como NVARCHAR a la tabla raw primero; castear (quitar $, coma→punto, parsear fecha d/m/aaaa) en el SP de transformación, no en la carga.
