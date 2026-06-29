@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pacientes: revenue, conversión y LTV — Data Story</title>
-  <meta name="description" content="Análisis financiero de pacientes: revenue, funnel de conversión, LTV y retención. Pipeline SQL-céntrico + data-story." />
+  <title>Patients: revenue, conversion &amp; LTV — Data Story</title>
+  <meta name="description" content="Patient financial analysis: revenue, conversion funnel, LTV and retention. SQL-centric pipeline + data-story." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -13,14 +13,14 @@
 <body>
   <header class="hero">
     <div class="wrap">
-      <p class="eyebrow">Análisis financiero de pacientes · pipeline SQL → data-story</p>
-      <h1>De la primera consulta al <span class="hl">valor de vida</span> del paciente</h1>
+      <p class="eyebrow">Patient financial analysis · SQL pipeline → data-story</p>
+      <h1>From the first consultation to patient <span class="hl">lifetime value</span></h1>
       <p class="thesis">
-        1.419 pacientes, 17.294 citas, 20 meses. La historia no está en cuántos entran,
-        sino en cuántos dan el salto de la consulta general a la especialización —
-        el verdadero motor del revenue.
+        1,419 patients, 17,294 appointments, 20 months. The story isn't how many come in,
+        but how many make the leap from a general consultation to a specialization —
+        the real revenue engine.
       </p>
-      <div class="kpis" id="kpis" aria-label="Indicadores clave"></div>
+      <div class="kpis" id="kpis" aria-label="Key indicators"></div>
     </div>
   </header>
 
@@ -29,12 +29,11 @@
     <section class="story" id="s-monthly">
       <div class="copy">
         <span class="step">01</span>
-        <h2>El pulso del negocio</h2>
+        <h2>The pulse of the business</h2>
         <p>
-          La captación se concentra brutalmente en el arranque: casi todos los pacientes
-          entran en mayo de 2024 y, a partir de ahí, el volumen mensual cae mes a mes.
-          Las citas especializadas (en color de acento) son una fracción pequeña pero
-          persistente del total.
+          Acquisition is heavily front-loaded: almost every patient arrives in May 2024,
+          and from there monthly volume declines month after month. Specialized
+          appointments (in the accent color) are a small but persistent fraction of the total.
         </p>
       </div>
       <figure class="viz"><div class="chart" id="chart-monthly"></div></figure>
@@ -43,11 +42,11 @@
     <section class="story" id="s-funnel">
       <div class="copy">
         <span class="step">02</span>
-        <h2>¿Quién convierte?</h2>
+        <h2>Who converts?</h2>
         <p>
-          De cada 100 pacientes, 95 llegan a una consulta general pero solo <strong>30
-          alcanzan una especialización</strong>. Ese estrechamiento es la pregunta central
-          del negocio: el 70% restante nunca cruza a la línea de servicio de mayor valor.
+          Of every 100 patients, 95 reach a general consultation but only <strong>30 reach a
+          specialization</strong>. That narrowing is the central business question: the
+          remaining 70% never cross into the higher-value service line.
         </p>
       </div>
       <figure class="viz"><div class="chart chart-sm" id="chart-funnel"></div></figure>
@@ -56,11 +55,11 @@
     <section class="story" id="s-waterfall">
       <div class="copy">
         <span class="step">03</span>
-        <h2>¿Cuánto vale un paciente?</h2>
+        <h2>What is a patient worth?</h2>
         <p>
-          El LTV promedio se descompone en dos líneas de servicio. La consulta general
-          aporta la base; la especialización añade el resto — pero solo para quien convierte.
-          Cada componente se explica por sus drivers (visitas × ticket).
+          Average LTV breaks down into two service lines. The general consultation provides
+          the base; specialization adds the rest — but only for those who convert. Each
+          component is explained by its drivers (visits × ticket).
         </p>
         <div class="drivers" id="drivers"></div>
       </div>
@@ -70,12 +69,11 @@
     <section class="story" id="s-cohort">
       <div class="copy">
         <span class="step">04</span>
-        <h2>¿Se quedan?</h2>
+        <h2>Do they stay?</h2>
         <p>
-          La captación fue casi un evento único: <strong>1.382 de los 1.419 pacientes</strong>
-          tienen su primera visita en mayo de 2024. Sobre esa cohorte dominante, la retención
-          conserva ~72% de actividad al primer mes y cae por debajo del 25% al sexto.
-          El sangrado es rápido y temprano.
+          Acquisition was essentially a one-off: <strong>1,382 of the 1,419 patients</strong>
+          have their first visit in May 2024. On that dominant cohort, retention holds ~72%
+          activity at month one and falls below 25% by month six. The bleed is fast and early.
         </p>
       </div>
       <figure class="viz"><div class="chart chart-tall" id="chart-cohort"></div></figure>
@@ -84,11 +82,11 @@
     <section class="story" id="s-pareto">
       <div class="copy">
         <span class="step">05</span>
-        <h2>¿Quién paga la fiesta?</h2>
+        <h2>Who pays the bills?</h2>
         <p>
-          Hay concentración, pero no es un 80/20 de manual: el <strong>20% de pacientes
-          concentra el 61% del revenue</strong>, y hace falta el 38% para llegar al 80%.
-          La base de ingresos está más repartida de lo que el tópico sugeriría.
+          There's concentration, but it's no textbook 80/20: the <strong>top 20% of patients
+          hold 61% of revenue</strong>, and you need 38% to reach 80%. The revenue base is
+          more spread out than the cliché suggests.
         </p>
       </div>
       <figure class="viz"><div class="chart" id="chart-pareto"></div></figure>
@@ -97,11 +95,11 @@
     <section class="story" id="s-firstvisit">
       <div class="copy">
         <span class="step">06</span>
-        <h2>Seis pacientes, de cerca</h2>
+        <h2>Six patients, up close</h2>
         <p>
-          La primera cita de los pacientes objetivo. Ninguna costó $50: el supuesto
-          "intake fijo" del análisis original no resiste los datos — las primeras
-          consultas van de $158 a $205.
+          The first visit of the target patients. None cost $50: the "fixed intake"
+          assumption from the original analysis doesn't survive the data — first
+          consultations range from $158 to $205.
         </p>
       </div>
       <figure class="viz"><div class="tablewrap" id="table-firstvisit"></div></figure>
@@ -110,16 +108,15 @@
     <section class="story" id="s-projection">
       <div class="copy">
         <span class="step">07</span>
-        <h2>Mirando a diciembre 2026</h2>
+        <h2>Looking ahead to December 2026</h2>
         <p>
-          Si cada paciente mantuviera su cadencia histórica, estas serían las citas y el
-          revenue proyectados a fin de 2026.
+          If each patient kept their historical cadence, these would be the appointments
+          and revenue projected through the end of 2026.
         </p>
         <p class="caveat">
-          ⚠ Es un <strong>techo de planificación, no un pronóstico</strong>: asume cadencia
-          constante y cero abandono. La retención (sección 4) demuestra que la mayoría de
-          pacientes deja de venir, así que estas cifras sobrestiman. Afinar esto requiere
-          un modelo de churn.
+          ⚠ This is a <strong>planning ceiling, not a forecast</strong>: it assumes constant
+          cadence and zero churn. Retention (section 4) shows most patients stop coming, so
+          these figures overstate. Refining this needs a churn model.
         </p>
       </div>
       <figure class="viz">
@@ -132,14 +129,14 @@
 
   <footer>
     <div class="wrap">
-      <h3>Metodología y supuestos</h3>
+      <h3>Methodology &amp; assumptions</h3>
       <ul>
-        <li><strong>Pipeline:</strong> CSV crudo → tabla <code>raw</code> (NVARCHAR) → estrella ligera <code>core</code> (fact + dimensiones) → vistas <code>analysis</code> → JSON estático. Todo en SQL Server.</li>
-        <li><strong>LTV:</strong> revenue total / pacientes únicos, descompuesto aditivamente en componente general + especializado.</li>
-        <li><strong>Supuesto de negocio (no verificado):</strong> Tipo 1 = consulta general, Tipo 2 = especialización. El origen del dataset se desconoce; tratar como hipótesis declarada.</li>
-        <li><strong>Ventana:</strong> 29-mar-2024 a 30-nov-2025. Proyección hasta 31-dic-2026.</li>
+        <li><strong>Pipeline:</strong> raw CSV → <code>raw</code> table (NVARCHAR) → light star schema <code>core</code> (fact + dimensions) → <code>analysis</code> views → static JSON. All in SQL Server.</li>
+        <li><strong>LTV:</strong> total revenue / unique patients, decomposed additively into general + specialized component.</li>
+        <li><strong>Business assumption (unverified):</strong> Type 1 = general consultation, Type 2 = specialization. The dataset's origin is unknown; treat as a stated hypothesis.</li>
+        <li><strong>Window:</strong> Mar 29, 2024 to Nov 30, 2025. Projection through Dec 31, 2026.</li>
       </ul>
-      <p class="src">Fuente: dataset financiero de pacientes (17.294 citas). Pieza de portfolio · análisis de datos.</p>
+      <p class="src">Source: patient financial dataset (17,294 appointments). Portfolio piece · data analysis.</p>
     </div>
   </footer>
 
