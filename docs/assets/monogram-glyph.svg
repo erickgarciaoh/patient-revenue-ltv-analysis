@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="EG">
+  <!-- Transparent glyph. Inherits color via currentColor — set with CSS:
+       color: var(--accent) on dark, color: var(--ink-900) on light. -->
+  <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
+        font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+        font-size="38" font-weight="600" letter-spacing="-1" fill="currentColor">EG</text>
+</svg>
