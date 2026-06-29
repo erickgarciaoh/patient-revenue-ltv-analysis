@@ -12,7 +12,7 @@ Rehacer un análisis financiero de pacientes (revenue, tipos de cita, LTV) con u
 | 2 | Exploración + reporte de calidad de datos; confirmar ventana temporal; fijar reglas de limpieza y la interpretación del waterfall LTV | Hecho |
 | 3 | Transformación: SPs que limpian/castean y materializan tablas procesadas (estrella ligera) | Hecho |
 | 4 | Análisis: 4 tareas core + funnel Tipo1→Tipo2, cohortes/retención, Pareto | Hecho |
-| 5 | Diseño de delivery: qué visual cuenta cada historia, layout (anti-bloatware) | Pendiente |
+| 5 | Diseño de delivery: qué visual cuenta cada historia, layout (anti-bloatware) | Hecho |
 | 6 | HTML data-story (front-end primario, hosteable en GitHub Pages) | Pendiente |
 | 7 | Power BI: modelo + DAX + reporte + publish-to-web + capturas (fase aditiva) | Pendiente |
 | 8 | Landing/repo: narrativa, README, deploy | Pendiente |
@@ -55,6 +55,12 @@ Adicionales (in-scope):
 - Calidad (Fase 2, verificada): 0 nulos y 0 valores no numéricos en patient_id/appointment_uid; appointment_uid es ÚNICO (PK natural del fact); appointment_type solo {1,2}; revenue 100% formato `$ X,XX` sin separador de miles ni negativos; service_date 100% parseable con CONVERT estilo 103. Ventana temporal: 2024-03-29 → 2025-11-30.
 - Importar TODO como NVARCHAR a la tabla raw primero; castear (quitar $, coma→punto, parsear fecha d/m/aaaa) en el SP de transformación, no en la carga.
 - Modelo objetivo (Fase 3): estrella ligera — `fact_appointment` (grano cita) + `dim_patient`, `dim_date`, `dim_appointment_type`.
+- Capa de consumo (Fase 4): esquema `analysis`, una vista por historia (`vw_monthly_executive_summary`, `vw_conversion_funnel`, `vw_ltv_waterfall` + `_drivers`, `vw_cohort_retention`, `vw_revenue_pareto`, `vw_target_patients_first_visit`, `vw_target_patients_projection`).
+
+## Delivery (decisiones Fase 5)
+- Formato: data-story scrollable de página única. Stack front: Apache ECharts vía CDN, sin build. Datos: vistas `analysis` exportadas a JSON estático.
+- Sitio en `docs/` (GitHub Pages serve-from-/docs): `index.html`, `assets/`, `data/*.json`.
+- Mapeo historia→visual: mensual=combo barras+línea; funnel=funnel; waterfall=waterfall+tabla drivers; cohortes=heatmap; pareto=curva Pareto+ref 80%; primera cita=tabla; proyección=tabla+barras+callout de límite (techo, no pronóstico).
 
 ## Convenciones
 <!-- Solo deltas respecto al CLAUDE.md global. -->
