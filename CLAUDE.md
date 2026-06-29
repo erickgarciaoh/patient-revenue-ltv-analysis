@@ -11,7 +11,7 @@ Rehacer un análisis financiero de pacientes (revenue, tipos de cita, LTV) con u
 | 1 | Ingesta: BDD del proyecto + tabla raw (NVARCHAR) + SP importador del CSV (loop: ejecutar→corregir). CSV cargado y apartado | Hecho |
 | 2 | Exploración + reporte de calidad de datos; confirmar ventana temporal; fijar reglas de limpieza y la interpretación del waterfall LTV | Hecho |
 | 3 | Transformación: SPs que limpian/castean y materializan tablas procesadas (estrella ligera) | Hecho |
-| 4 | Análisis: 4 tareas core + funnel Tipo1→Tipo2, cohortes/retención, Pareto | Pendiente |
+| 4 | Análisis: 4 tareas core + funnel Tipo1→Tipo2, cohortes/retención, Pareto | Hecho |
 | 5 | Diseño de delivery: qué visual cuenta cada historia, layout (anti-bloatware) | Pendiente |
 | 6 | HTML data-story (front-end primario, hosteable en GitHub Pages) | Pendiente |
 | 7 | Power BI: modelo + DAX + reporte + publish-to-web + capturas (fase aditiva) | Pendiente |
