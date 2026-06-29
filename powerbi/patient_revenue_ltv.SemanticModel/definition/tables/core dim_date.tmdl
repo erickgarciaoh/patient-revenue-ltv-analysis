@@ -1,0 +1,81 @@
+table 'core dim_date'
+	lineageTag: 984a44c3-720a-41d7-bd27-12535b0663ef
+	dataCategory: Time
+
+	column date_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: db9cf178-b84f-4964-a35d-961c85dc682f
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column full_date
+		dataType: dateTime
+		isUnique
+		formatString: Long Date
+		lineageTag: 38f03cb0-c0d5-4d86-848f-01ccd8baca89
+		summarizeBy: none
+		sourceColumn: full_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b0487ef-76a7-4462-835c-d069cd721875
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: eedc4a17-3ee2-476a-8771-2d174f400a42
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 081ab536-0dd6-4090-9d3b-e03e6163efcf
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a7d9d23-5571-4a0e-8dd3-a00972633d05
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: 7a61d526-9419-4042-9724-69b215eb2699
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'core dim_date' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("XTREMUS\DB001", "patient_revenue_ltv"),
+				    core_dim_date = Source{[Schema="core",Item="dim_date"]}[Data]
+				in
+				    core_dim_date
+
+	annotation PBI_ResultType = Table
+

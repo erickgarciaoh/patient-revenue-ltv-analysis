@@ -1,0 +1,58 @@
+table 'core dim_patient'
+	lineageTag: 58ec85cf-24cd-4340-8f1f-234c94cb285a
+
+	column patient_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4ab6ce0e-0669-4502-9b86-ab4d368e6756
+		summarizeBy: none
+		sourceColumn: patient_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a6465119-bc91-4d57-a484-3900c336fffa
+		summarizeBy: none
+		sourceColumn: patient_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_service_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 86f74cc6-aac6-492d-841f-44943d508b67
+		summarizeBy: none
+		sourceColumn: first_service_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cohort_month
+		dataType: string
+		lineageTag: 026e6847-24cc-4bee-8a41-d48ff6cf1003
+		summarizeBy: none
+		sourceColumn: cohort_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Patient Revenue Rank' = RANKX(ALL('core dim_patient'), CALCULATE(SUM('core fact_appointment'[revenue])), , DESC, Dense)
+		dataType: int64
+		isHidden
+		lineageTag: bd954842-5fa3-40e0-ad9d-2259a907c4ff
+		summarizeBy: none
+
+	partition 'core dim_patient' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("XTREMUS\DB001", "patient_revenue_ltv"),
+				    core_dim_patient = Source{[Schema="core",Item="dim_patient"]}[Data]
+				in
+				    core_dim_patient
+
+	annotation PBI_ResultType = Table
+

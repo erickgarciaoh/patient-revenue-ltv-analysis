@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "patient_revenue_ltv"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3e65e391-d847-4f9b-8786-c7cb0f0e11b6"
+  }
+}

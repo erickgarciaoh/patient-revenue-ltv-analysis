@@ -14,7 +14,7 @@ Rehacer un análisis financiero de pacientes (revenue, tipos de cita, LTV) con u
 | 4 | Análisis: 4 tareas core + funnel Tipo1→Tipo2, cohortes/retención, Pareto | Hecho |
 | 5 | Diseño de delivery: qué visual cuenta cada historia, layout (anti-bloatware) | Hecho |
 | 6 | HTML data-story (front-end primario, hosteable en GitHub Pages) | Hecho |
-| 7 | Power BI: modelo + DAX + reporte + publish-to-web + capturas (fase aditiva) | Pendiente |
+| 7 | Power BI: modelo + DAX + reporte + publish-to-web + capturas (fase aditiva) | Hecho — modelo, DAX, reporte 1 pág y captura listos; publish-to-web pendiente (manual del usuario) |
 | 8 | Landing/repo: narrativa, README, deploy | Pendiente |
 
 Regla de corte anti-abandono: las fases 1→6 forman una pieza de portfolio completa y publicable por sí sola. La 7 es aditiva; si baja la energía, parar en 6 con entregable terminado, no a medias.

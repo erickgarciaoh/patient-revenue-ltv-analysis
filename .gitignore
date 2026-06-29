@@ -3,6 +3,10 @@ node_modules/
 *.tmp
 outputs/
 
+# Power BI (PBIP): artefactos locales/usuario y cache, no versionar.
+# El .pbip, .Report/ y .SemanticModel/ (texto/TMDL) SI se versionan.
+**/.pbi/
+
 # Si el repo sera publico, descomentar para no exponer rutas y nombres de maquina locales:
 # .claude/settings.json
 # .mcp.json

@@ -1,0 +1,18 @@
+relationship 451c352d-6f18-46c3-84cc-b0375e9d982a
+	fromColumn: 'core fact_appointment'.type_key
+	toColumn: 'core dim_appointment_type'.type_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5fbe5941-e0fa-458f-a762-3e8faedee799
+	fromColumn: 'core fact_appointment'.date_key
+	toColumn: 'core dim_date'.date_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5eb7225f-0042-4d06-92d9-d2536807994c
+	fromColumn: 'core fact_appointment'.patient_key
+	toColumn: 'core dim_patient'.patient_key
+
+	annotation PBI_IsFromSource = FS
+

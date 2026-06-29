@@ -1,0 +1,20 @@
+table 'Funnel Stage'
+	lineageTag: 96dfcfe9-0e4d-4adf-a122-354d6e6680a6
+
+	column Stage
+		lineageTag: 3f8e8395-e2f6-43ca-8320-ee00c5091404
+		isNameInferred
+		sourceColumn: [Stage]
+		sortByColumn: Ord
+
+	column Ord
+		isHidden
+		lineageTag: 963b4142-8292-4f39-82ba-691cb5003390
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ord]
+
+	partition 'Funnel Stage' = calculated
+		mode: import
+		source = DATATABLE("Stage", STRING, "Ord", INTEGER, {{"All patients", 1}, {"Reached general", 2}, {"Reached specialization", 3}})
+

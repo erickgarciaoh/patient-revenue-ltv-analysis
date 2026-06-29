@@ -1,0 +1,65 @@
+table 'core fact_appointment'
+	lineageTag: e10f86a8-9311-45a7-bbd7-6f876459517a
+
+	column appointment_uid
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: bbe8aa2a-44e2-4100-bb21-1b382ad089f1
+		summarizeBy: none
+		sourceColumn: appointment_uid
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: aaa24ee9-618b-428e-b9e3-c9d0ae8c2599
+		summarizeBy: none
+		sourceColumn: patient_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a2f64606-0a04-4a0d-b3e4-35b9ddc1ca7a
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 79c44d91-55d7-48d6-bae2-bbc9feff9c40
+		summarizeBy: none
+		sourceColumn: type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue
+		dataType: double
+		formatString: $#,##0.00
+		lineageTag: ae69ce44-b23c-4885-8390-0b4426b1c41a
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'core fact_appointment' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("XTREMUS\DB001", "patient_revenue_ltv"),
+				    core_fact_appointment = Source{[Schema="core",Item="fact_appointment"]}[Data]
+				in
+				    core_fact_appointment
+
+	annotation PBI_ResultType = Table
+

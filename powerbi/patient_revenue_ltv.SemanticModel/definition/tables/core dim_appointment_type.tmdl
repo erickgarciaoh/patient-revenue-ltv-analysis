@@ -1,0 +1,32 @@
+table 'core dim_appointment_type'
+	lineageTag: b2c982dc-140a-4e57-929b-f81d3241aea6
+
+	column type_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6bad92e7-2e2c-4abc-a258-11af5a268a8f
+		summarizeBy: none
+		sourceColumn: type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_name
+		dataType: string
+		lineageTag: f4fcfd02-bc7b-4d7a-b5f2-347856004dfc
+		summarizeBy: none
+		sourceColumn: type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'core dim_appointment_type' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("XTREMUS\DB001", "patient_revenue_ltv"),
+				    core_dim_appointment_type = Source{[Schema="core",Item="dim_appointment_type"]}[Data]
+				in
+				    core_dim_appointment_type
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,124 @@
+table _Measures
+	lineageTag: e1242896-5fc5-49ca-aa38-1f01b5391683
+
+	measure 'Total Revenue' = SUM('core fact_appointment'[revenue])
+		formatString: $#,##0
+		displayFolder: 1 Volume
+		lineageTag: bf048302-117e-403f-a39c-22e32a48a282
+
+	measure 'Appointments' = COUNTROWS('core fact_appointment')
+		formatString: #,##0
+		displayFolder: 1 Volume
+		lineageTag: 186d31e5-993f-4de1-a37d-f2e87a872b8c
+
+	measure 'Unique Patients' = DISTINCTCOUNT('core fact_appointment'[patient_key])
+		formatString: #,##0
+		displayFolder: 1 Volume
+		lineageTag: 3289a55a-01a4-4254-9dc8-f736b64e828d
+
+	measure 'Revenue General' = CALCULATE(SUM('core fact_appointment'[revenue]), 'core dim_appointment_type'[type_name] = "General")
+		formatString: $#,##0
+		displayFolder: 1 Volume
+		lineageTag: 67d66b5b-6f1c-4f68-8e5a-09479364bace
+
+	measure 'Revenue Specialized' = CALCULATE(SUM('core fact_appointment'[revenue]), 'core dim_appointment_type'[type_name] = "Especializado")
+		formatString: $#,##0
+		displayFolder: 1 Volume
+		lineageTag: 71d7ffd1-3b96-4f8e-a366-1f2ab2ceaeda
+
+	measure 'Appts General' = CALCULATE(COUNTROWS('core fact_appointment'), 'core dim_appointment_type'[type_name] = "General")
+		formatString: #,##0
+		displayFolder: 1 Volume
+		lineageTag: 527a2f8d-fc55-49f0-8fed-b0496c62dc89
+
+	measure 'Appts Specialized' = CALCULATE(COUNTROWS('core fact_appointment'), 'core dim_appointment_type'[type_name] = "Especializado")
+		formatString: #,##0
+		displayFolder: 1 Volume
+		lineageTag: 8e3b3c03-e87f-4e87-beb3-a3c6739f51b8
+
+	measure 'Patients with Specialization' = CALCULATE(DISTINCTCOUNT('core fact_appointment'[patient_key]), 'core dim_appointment_type'[type_name] = "Especializado")
+		formatString: #,##0
+		displayFolder: 2 Conversion
+		lineageTag: 7d070c83-8dbe-457a-83ee-fd091eebec48
+
+	measure 'Conversion Rate' = DIVIDE([Patients with Specialization], [Unique Patients])
+		formatString: 0.0%
+		displayFolder: 2 Conversion
+		lineageTag: 5e2b78c2-ca0f-429f-9658-53a797d0caf1
+
+	measure 'Average LTV' = DIVIDE([Total Revenue], [Unique Patients])
+		formatString: $#,##0.00
+		displayFolder: 3 LTV
+		lineageTag: 4f05b251-14d7-4c3d-844a-c5a219b06507
+
+	measure 'LTV General Component' = DIVIDE([Revenue General], [Unique Patients])
+		formatString: $#,##0.00
+		displayFolder: 3 LTV
+		lineageTag: af71f5a4-2f87-473a-b7be-a17a5de01b2a
+
+	measure 'LTV Specialized Component' = DIVIDE([Revenue Specialized], [Unique Patients])
+		formatString: $#,##0.00
+		displayFolder: 3 LTV
+		lineageTag: 45789b37-7b4f-4639-b7d2-024ec8f7f51f
+
+	measure 'Gen Visits per Patient' = DIVIDE([Appts General], [Unique Patients])
+		formatString: 0.00
+		displayFolder: 4 Drivers
+		lineageTag: c4e6a8f4-1624-4877-b2a7-6efde8be333d
+
+	measure 'Avg General Ticket' = DIVIDE([Revenue General], [Appts General])
+		formatString: $#,##0.00
+		displayFolder: 4 Drivers
+		lineageTag: 629b914b-f777-4548-9464-4d0e7add1492
+
+	measure 'Spec Visits per Converter' = DIVIDE([Appts Specialized], [Patients with Specialization])
+		formatString: 0.00
+		displayFolder: 4 Drivers
+		lineageTag: f643db09-624a-4738-a93a-e920ea86e29a
+
+	measure 'Avg Specialized Ticket' = DIVIDE([Revenue Specialized], [Appts Specialized])
+		formatString: $#,##0.00
+		displayFolder: 4 Drivers
+		lineageTag: b1441657-32f8-434d-87e3-ea49f1acede2
+
+	measure 'Patients with General' = CALCULATE(DISTINCTCOUNT('core fact_appointment'[patient_key]), 'core dim_appointment_type'[type_name] = "General")
+		formatString: #,##0
+		displayFolder: 2 Conversion
+		lineageTag: 22e48f28-9ad6-4ccc-8bd6-eb90e53a3942
+
+	measure 'Cohort Patients' = COUNTROWS('core dim_patient')
+		formatString: #,##0
+		displayFolder: 5 Cohort
+		lineageTag: 9b652052-c7f4-4195-bc35-6e284467d3a4
+
+	measure 'Cumulative Revenue %' =
+			VAR CurrentRank = SELECTEDVALUE('core dim_patient'[Patient Revenue Rank])
+			VAR PatRev = ADDCOLUMNS(ALL('core dim_patient'), "@rank", 'core dim_patient'[Patient Revenue Rank], "@rev", CALCULATE([Total Revenue]))
+			VAR TotalRev = SUMX(PatRev, [@rev])
+			VAR CumRev = SUMX(FILTER(PatRev, [@rank] <= CurrentRank), [@rev])
+			RETURN DIVIDE(CumRev, TotalRev)
+		formatString: 0.0%
+		displayFolder: 6 Pareto
+		lineageTag: dc7c57ec-083b-430a-a3f7-ef09629b0464
+
+	measure 'Funnel Patients' = SWITCH(SELECTEDVALUE('Funnel Stage'[Ord]), 1, [Unique Patients], 2, [Patients with General], 3, [Patients with Specialization])
+		formatString: #,##0
+		displayFolder: 2 Conversion
+		lineageTag: 1d000a79-60fc-497c-bb98-30a8d8577e68
+
+	measure 'LTV Line Value' = SWITCH(SELECTEDVALUE('LTV Line'[Ord]), 1, [LTV General Component], 2, [LTV Specialized Component])
+		formatString: $#,##0.00
+		displayFolder: 3 LTV
+		lineageTag: cc4fb584-ab07-404d-8867-b87eaff5a144
+
+	column Value
+		isHidden
+		lineageTag: 115a2542-7dc6-46c3-95d4-e8afe6a01dd6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = {BLANK()}
+

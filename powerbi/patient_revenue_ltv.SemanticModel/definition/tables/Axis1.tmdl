@@ -1,0 +1,11 @@
+table Axis1
+	lineageTag: c0ed7fcb-fbae-468e-b1ea-037ecfca010a
+
+	column Group
+		isNameInferred
+		sourceColumn: [Group]
+
+	partition Axis1 = calculated
+		mode: import
+		source = DATATABLE("Group", STRING, {{" "}})
+

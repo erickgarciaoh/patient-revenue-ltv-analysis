@@ -1,0 +1,25 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CO
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+annotation PBI_QueryOrder = ["core fact_appointment","core dim_patient","core dim_date","core dim_appointment_type"]
+
+ref table 'core fact_appointment'
+ref table 'core dim_patient'
+ref table 'core dim_date'
+ref table 'core dim_appointment_type'
+ref table _Measures
+ref table 'Funnel Stage'
+ref table 'LTV Line'
+ref table Axis1
+
+ref cultureInfo en-US
+

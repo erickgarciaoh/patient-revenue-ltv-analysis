@@ -1,0 +1,62 @@
+{
+  "name": "Erick Garcia - Brand (Dark)",
+  "dataColors": [
+    "#4A7FA5",
+    "#3D9E8C",
+    "#B55577",
+    "#7157A8",
+    "#6B7A8D",
+    "#8FAE5A",
+    "#9C6B4E"
+  ],
+  "good": "#28A45A",
+  "neutral": "#C48520",
+  "bad": "#C03B3B",
+  "maximum": "#C27C35",
+  "center": "#6B7A8D",
+  "minimum": "#1C2636",
+  "background": "#111827",
+  "foreground": "#E7E5E0",
+  "tableAccent": "#C27C35",
+  "firstLevelElements": "#E7E5E0",
+  "secondLevelElements": "#96928A",
+  "thirdLevelElements": "#374459",
+  "fourthLevelElements": "#506078",
+  "secondaryBackground": "#1C2636",
+  "textClasses": {
+    "title": { "fontFace": "Cormorant Garamond SemiBold", "fontSize": 18, "color": "#E7E5E0" },
+    "header": { "fontFace": "Barlow", "fontSize": 12, "color": "#E7E5E0" },
+    "callout": { "fontFace": "Barlow Thin", "fontSize": 28, "color": "#E7E5E0" },
+    "label": { "fontFace": "Barlow", "fontSize": 10, "color": "#96928A" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#1C2636" } } }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#374459" } }, "radius": 4 }],
+        "visualHeaderTooltip": [{ "background": { "solid": { "color": "#111827" } } }],
+        "title": [{
+          "show": true,
+          "fontColor": { "solid": { "color": "#E7E5E0" } },
+          "fontFamily": "Cormorant Garamond SemiBold",
+          "fontSize": 14,
+          "background": { "solid": { "color": "#1C2636" } }
+        }]
+      }
+    },
+    "card": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#111827" } } }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#374459" } }, "radius": 4 }],
+        "labels": [{ "color": { "solid": { "color": "#E7E5E0" } }, "fontFamily": "Barlow Thin", "fontSize": 28 }],
+        "categoryLabels": [{ "color": { "solid": { "color": "#96928A" } }, "fontFamily": "Barlow", "fontSize": 10 }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#111827" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#080C12" } }, "transparency": 0 }]
+      }
+    }
+  }
+}
