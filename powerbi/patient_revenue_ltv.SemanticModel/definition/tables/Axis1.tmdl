@@ -2,6 +2,7 @@ table Axis1
 	lineageTag: c0ed7fcb-fbae-468e-b1ea-037ecfca010a
 
 	column Group
+		lineageTag: aea28fe7-f627-42bf-b2bc-d9b633f37aa9
 		isNameInferred
 		sourceColumn: [Group]
 

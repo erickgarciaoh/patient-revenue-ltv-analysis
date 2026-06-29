@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "9297a34ca17f294dbb1d",
+  "name": "0a61133e0aa1d486c565",
   "position": {
     "z": 1000,
     "tabOrder": 1000,
-    "x": 24,
+    "x": 856,
     "y": 432,
     "height": 280,
     "width": 400
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Axis1"
+                      "Entity": "core dim_patient"
                     }
                   },
-                  "Property": "Group"
+                  "Property": "Patient Revenue Rank"
                 }
               },
-              "queryRef": "Axis1.Group",
-              "nativeQueryRef": "Group",
+              "queryRef": "core dim_patient.Patient Revenue Rank",
+              "nativeQueryRef": "Patient Revenue Rank",
               "active": true
             }
           ]
@@ -42,25 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "LTV General Component"
+                  "Property": "Cumulative Revenue %"
                 }
               },
-              "queryRef": "_Measures.LTV General Component",
-              "nativeQueryRef": "LTV General Component"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "LTV Specialized Component"
-                }
-              },
-              "queryRef": "_Measures.LTV Specialized Component",
-              "nativeQueryRef": "LTV Specialized Component"
+              "queryRef": "_Measures.Cumulative Revenue %",
+              "nativeQueryRef": "Cumulative Revenue %"
             }
           ]
         }
@@ -70,7 +56,7 @@
       "dataPoint": [
         {
           "properties": {
-            "fill": {
+            "defaultColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -81,14 +67,86 @@
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "_Measures.LTV General Component"
           }
-        },
+        }
+      ],
+      "categoryAxis": [
         {
           "properties": {
-            "fill": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "0.8D"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C27C35'"
+                    }
+                  }
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "dataLabelText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Name'"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'80% of revenue'"
+                }
+              }
+            },
+            "dataLabelColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -101,40 +159,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.LTV Specialized Component"
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'TopCenter'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
+            "id": "Pareto80"
           }
         }
       ]
@@ -153,7 +178,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'What a patient is worth'"
+                  "Value": "'Revenue concentration (Pareto)'"
                 }
               }
             },

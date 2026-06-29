@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "1ae7c3a81c42c7053628",
+  "name": "a842ef3a55291b354160",
   "position": {
     "z": 1000,
     "tabOrder": 1000,
-    "x": 840,
-    "y": 184,
-    "height": 240,
-    "width": 416
+    "x": 440,
+    "y": 432,
+    "height": 280,
+    "width": 400
   },
   "visual": {
-    "visualType": "funnel",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Funnel Stage"
+                      "Entity": "core dim_patient"
                     }
                   },
-                  "Property": "Stage"
+                  "Property": "cohort_month"
                 }
               },
-              "queryRef": "Funnel Stage.Stage",
-              "nativeQueryRef": "Stage",
+              "queryRef": "core dim_patient.cohort_month",
+              "nativeQueryRef": "cohort_month",
               "active": true
             }
           ]
@@ -42,14 +42,32 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Funnel Patients"
+                  "Property": "Cohort Patients"
                 }
               },
-              "queryRef": "_Measures.Funnel Patients",
-              "nativeQueryRef": "Funnel Patients"
+              "queryRef": "_Measures.Cohort Patients",
+              "nativeQueryRef": "Cohort Patients"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "core dim_patient"
+                  }
+                },
+                "Property": "cohort_month"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -82,6 +100,19 @@
             }
           }
         }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -98,7 +129,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Conversion funnel'"
+                  "Value": "'Patients by cohort month'"
                 }
               }
             },

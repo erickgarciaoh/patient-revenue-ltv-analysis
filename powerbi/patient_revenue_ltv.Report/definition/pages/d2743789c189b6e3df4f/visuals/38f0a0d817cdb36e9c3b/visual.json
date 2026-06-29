@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "f443a8062d39fe725d48",
+  "name": "38f0a0d817cdb36e9c3b",
   "position": {
     "z": 1000,
     "tabOrder": 1000,
-    "x": 520,
-    "y": 96,
-    "height": 84,
+    "x": 1016,
+    "y": 92,
+    "height": 92,
     "width": 232
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Average LTV"
+                  "Property": "Appointments"
                 }
               },
-              "queryRef": "_Measures.Average LTV",
-              "nativeQueryRef": "Average LTV"
+              "queryRef": "_Measures.Appointments",
+              "nativeQueryRef": "Appointments"
             }
           ]
         }
@@ -40,7 +40,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "19D"
+                  "Value": "16D"
                 }
               }
             },
@@ -70,7 +70,21 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average LTV'"
+                  "Value": "'Appointments'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

@@ -1,54 +1,98 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "c5b884c20e6569f8b14d",
+  "name": "bcfd0161a7ff26a11aa8",
   "position": {
-    "x": 1064,
-    "y": 8,
+    "x": 840,
+    "y": 192,
     "z": 1000,
-    "height": 80,
-    "width": 192,
+    "height": 232,
+    "width": 416,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "funnel",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "core dim_appointment_type"
+                      "Entity": "Funnel Stage"
                     }
                   },
-                  "Property": "type_name"
+                  "Property": "Stage"
                 }
               },
-              "queryRef": "core dim_appointment_type.type_name",
-              "nativeQueryRef": "type_name",
+              "queryRef": "Funnel Stage.Stage",
+              "nativeQueryRef": "Stage",
               "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Funnel Patients"
+                }
+              },
+              "queryRef": "_Measures.Funnel Patients",
+              "nativeQueryRef": "Funnel Patients"
             }
           ]
         }
       }
     },
     "objects": {
-      "data": [
+      "dataPoint": [
         {
           "properties": {
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Dropdown'"
+            "defaultColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4A7FA5'"
+                    }
+                  }
                 }
               }
             }
           }
         }
       ],
-      "header": [
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
         {
           "properties": {
             "show": {
@@ -61,43 +105,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Type'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
+                  "Value": "'Conversion funnel'"
                 }
               }
             },
-            "bottom": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
+                  "Value": "'Cormorant Garamond SemiBold'"
                 }
               }
             }

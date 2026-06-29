@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "a66e994bf234c46670df",
+  "name": "0843da271cbf44466220",
   "position": {
-    "x": 856,
+    "x": 1064,
     "y": 8,
     "z": 1000,
     "height": 80,
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "core dim_date"
+                      "Entity": "core dim_appointment_type"
                     }
                   },
-                  "Property": "year_month"
+                  "Property": "type_name"
                 }
               },
-              "queryRef": "core dim_date.year_month",
-              "nativeQueryRef": "year_month",
+              "queryRef": "core dim_appointment_type.type_name",
+              "nativeQueryRef": "type_name",
               "active": true
             }
           ]
@@ -61,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Month'"
+                  "Value": "'Type'"
                 }
               }
             }

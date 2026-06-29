@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "36d53c763a887430718f",
+  "name": "dcfdffdc05e17a3f3a9f",
   "position": {
     "z": 1000,
     "tabOrder": 1000,
     "x": 768,
-    "y": 96,
-    "height": 84,
+    "y": 92,
+    "height": 92,
     "width": 232
   },
   "visual": {
@@ -40,7 +40,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "19D"
+                  "Value": "16D"
                 }
               }
             },
@@ -71,6 +71,20 @@
               "expr": {
                 "Literal": {
                   "Value": "'Conversion to specialization'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

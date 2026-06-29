@@ -72,6 +72,32 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1214.554625727236,
+            "y": 135.19728773171553
+          },
+          "nodeIndex": "Axis1",
+          "nodeLineageTag": "c0ed7fcb-fbae-468e-b1ea-037ecfca010a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1498.554625727236,
+            "y": 171.19728773171553
+          },
+          "nodeIndex": "Funnel Stage",
+          "nodeLineageTag": "96dfcfe9-0e4d-4adf-a122-354d6e6680a6",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

@@ -18,7 +18,6 @@ ref table 'core dim_date'
 ref table 'core dim_appointment_type'
 ref table _Measures
 ref table 'Funnel Stage'
-ref table 'LTV Line'
 ref table Axis1
 
 ref cultureInfo en-US

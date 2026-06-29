@@ -6,7 +6,7 @@ table _Measures
 		displayFolder: 1 Volume
 		lineageTag: bf048302-117e-403f-a39c-22e32a48a282
 
-	measure 'Appointments' = COUNTROWS('core fact_appointment')
+	measure Appointments = COUNTROWS('core fact_appointment')
 		formatString: #,##0
 		displayFolder: 1 Volume
 		lineageTag: 186d31e5-993f-4de1-a37d-f2e87a872b8c
@@ -105,11 +105,6 @@ table _Measures
 		formatString: #,##0
 		displayFolder: 2 Conversion
 		lineageTag: 1d000a79-60fc-497c-bb98-30a8d8577e68
-
-	measure 'LTV Line Value' = SWITCH(SELECTEDVALUE('LTV Line'[Ord]), 1, [LTV General Component], 2, [LTV Specialized Component])
-		formatString: $#,##0.00
-		displayFolder: 3 LTV
-		lineageTag: cc4fb584-ab07-404d-8867-b87eaff5a144
 
 	column Value
 		isHidden

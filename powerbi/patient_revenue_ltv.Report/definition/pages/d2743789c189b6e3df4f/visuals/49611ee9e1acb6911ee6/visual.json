@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "a78699bec35f0e1bc31e",
+  "name": "49611ee9e1acb6911ee6",
   "position": {
     "z": 1000,
     "tabOrder": 1000,
-    "x": 24,
-    "y": 96,
-    "height": 84,
+    "x": 520,
+    "y": 92,
+    "height": 92,
     "width": 232
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Revenue"
+                  "Property": "Average LTV"
                 }
               },
-              "queryRef": "_Measures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "queryRef": "_Measures.Average LTV",
+              "nativeQueryRef": "Average LTV"
             }
           ]
         }
@@ -40,21 +40,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "19D"
+                  "Value": "16D"
                 }
               }
             },
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "1000000D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
+                  "Value": "1D"
                 }
               }
             }
@@ -77,7 +70,21 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Revenue'"
+                  "Value": "'Average LTV'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

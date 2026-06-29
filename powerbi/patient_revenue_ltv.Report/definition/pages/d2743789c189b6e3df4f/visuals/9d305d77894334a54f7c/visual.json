@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "e390586eaaca6ce3b2f3",
+  "name": "9d305d77894334a54f7c",
   "position": {
     "z": 1000,
     "tabOrder": 1000,
-    "x": 1016,
-    "y": 96,
-    "height": 84,
+    "x": 272,
+    "y": 92,
+    "height": 92,
     "width": 232
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Appointments"
+                  "Property": "Unique Patients"
                 }
               },
-              "queryRef": "_Measures.Appointments",
-              "nativeQueryRef": "Appointments"
+              "queryRef": "_Measures.Unique Patients",
+              "nativeQueryRef": "Unique Patients"
             }
           ]
         }
@@ -40,7 +40,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "19D"
+                  "Value": "16D"
                 }
               }
             },
@@ -70,7 +70,21 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Appointments'"
+                  "Value": "'Unique Patients'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
