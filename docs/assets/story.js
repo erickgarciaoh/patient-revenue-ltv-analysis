@@ -80,6 +80,10 @@ Promise.all([
   tableFirstVisit(firstVisit);
   deferChart('chart-projection', () => chartProjection(projection));
   tableProjection(projection);
+}).catch(err => {
+  console.error('Data load failed:', err);
+  ['chart-monthly', 'chart-funnel', 'chart-waterfall', 'chart-cohort', 'chart-pareto', 'chart-projection', 'table-firstvisit', 'table-projection']
+    .forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = '<p class="load-error">Couldn\'t load this data. Try refreshing the page.</p>'; });
 });
 
 window.addEventListener('resize', () => charts.forEach(c => c.resize()));

@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patients: revenue, conversion &amp; LTV — Data Story</title>
+  <title>Patients: revenue, conversion &amp; LTV · Data Story</title>
   <meta name="description" content="Patient financial analysis: revenue, conversion funnel, LTV and retention. SQL-centric pipeline + data-story." />
   <link rel="icon" type="image/svg+xml" href="assets/monogram.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/monogram-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/monogram-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Barlow:wght@100;200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Barlow:wght@200;400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/tokens.css" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
@@ -25,7 +26,7 @@
       <h1>From the first consultation to patient <span class="hl">lifetime value</span></h1>
       <p class="thesis">
         1,419 patients, 17,294 appointments, 20 months. The story isn't how many come in,
-        but how many make the leap from a general consultation to a specialization —
+        but how many make the leap from a general consultation to a specialization:
         the real revenue engine.
       </p>
       <div class="kpis" id="kpis" aria-label="Key indicators"></div>
@@ -36,7 +37,6 @@
 
     <section class="story" id="s-monthly">
       <div class="copy">
-        <span class="step">01</span>
         <h2>The pulse of the business</h2>
         <p>
           Acquisition is heavily front-loaded: almost every patient arrives in May 2024,
@@ -44,12 +44,11 @@
           appointments are a small but persistent fraction of the total.
         </p>
       </div>
-      <figure class="viz"><div class="chart" id="chart-monthly"></div></figure>
+      <figure class="viz"><div class="chart" id="chart-monthly" role="img" aria-label="Monthly appointments by type and total revenue. Volume is front-loaded around May 2024 and declines month after month; specialized appointments stay a small persistent fraction."></div></figure>
     </section>
 
     <section class="story" id="s-funnel">
       <div class="copy">
-        <span class="step">02</span>
         <h2>Who converts?</h2>
         <p>
           Of every 100 patients, 95 reach a general consultation but only <strong>30 reach a
@@ -57,26 +56,24 @@
           remaining 70% never cross into the higher-value service line.
         </p>
       </div>
-      <figure class="viz"><div class="chart chart-sm" id="chart-funnel"></div></figure>
+      <figure class="viz"><div class="chart chart-sm" id="chart-funnel" role="img" aria-label="Conversion funnel. Of every 100 patients, about 95 reach a general consultation but only 30 reach a specialization."></div></figure>
     </section>
 
     <section class="story" id="s-waterfall">
       <div class="copy">
-        <span class="step">03</span>
         <h2>What is a patient worth?</h2>
         <p>
           Average LTV breaks down into two service lines. The general consultation provides
-          the base; specialization adds the rest — but only for those who convert. Each
+          the base; specialization adds the rest, but only for those who convert. Each
           component is explained by its drivers (visits × ticket).
         </p>
         <div class="drivers" id="drivers"></div>
       </div>
-      <figure class="viz"><div class="chart" id="chart-waterfall"></div></figure>
+      <figure class="viz"><div class="chart" id="chart-waterfall" role="img" aria-label="Average lifetime value broken down into the general consultation component plus the specialization component, each adding to the average LTV total."></div></figure>
     </section>
 
     <section class="story" id="s-cohort">
       <div class="copy">
-        <span class="step">04</span>
         <h2>Do they stay?</h2>
         <p>
           Acquisition was essentially a one-off: <strong>1,382 of the 1,419 patients</strong>
@@ -84,12 +81,11 @@
           activity at month one and falls below 25% by month six. The bleed is fast and early.
         </p>
       </div>
-      <figure class="viz"><div class="chart chart-tall" id="chart-cohort"></div></figure>
+      <figure class="viz"><div class="chart chart-tall" id="chart-cohort" role="img" aria-label="Retention curve for the dominant May 2024 cohort. About 72 percent are still active at month one, falling below 25 percent by month six."></div></figure>
     </section>
 
     <section class="story" id="s-pareto">
       <div class="copy">
-        <span class="step">05</span>
         <h2>Who pays the bills?</h2>
         <p>
           There's concentration, but it's no textbook 80/20: the <strong>top 20% of patients
@@ -97,16 +93,15 @@
           more spread out than the cliché suggests.
         </p>
       </div>
-      <figure class="viz"><div class="chart" id="chart-pareto"></div></figure>
+      <figure class="viz"><div class="chart" id="chart-pareto" role="img" aria-label="Revenue concentration curve. The top 20 percent of patients hold 61 percent of revenue, and you need 38 percent of patients to reach 80 percent."></div></figure>
     </section>
 
     <section class="story" id="s-firstvisit">
       <div class="copy">
-        <span class="step">06</span>
         <h2>Six patients, up close</h2>
         <p>
           The first visit of the target patients. None cost $50: the "fixed intake"
-          assumption from the original analysis doesn't survive the data — first
+          assumption from the original analysis doesn't survive the data. First
           consultations range from $158 to $205.
         </p>
       </div>
@@ -115,7 +110,6 @@
 
     <section class="story" id="s-projection">
       <div class="copy">
-        <span class="step">07</span>
         <h2>Looking ahead to December 2026</h2>
         <p>
           If each patient kept their historical cadence, these would be the appointments
@@ -128,7 +122,7 @@
         </p>
       </div>
       <figure class="viz">
-        <div class="chart chart-sm" id="chart-projection"></div>
+        <div class="chart chart-sm" id="chart-projection" role="img" aria-label="Projected additional revenue through December 2026 for the six target patients, assuming each keeps their historical visit cadence."></div>
         <div class="tablewrap" id="table-projection"></div>
       </figure>
     </section>
@@ -152,7 +146,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
-  <script src="assets/story.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script defer src="assets/story.js"></script>
 </body>
 </html>

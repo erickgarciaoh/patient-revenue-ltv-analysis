@@ -63,7 +63,7 @@ code {
 }
 .kpi .l {
   font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
-  color: var(--canvas-500); margin-top: var(--space-2);
+  color: var(--canvas-400); margin-top: var(--space-2);
 }
 
 /* ---------- Story sections (light — information) ---------- */
@@ -71,11 +71,6 @@ main { padding: var(--space-6) 0 var(--space-10); }
 .story {
   display: grid; grid-template-columns: 0.82fr 1.18fr; gap: var(--space-12); align-items: center;
   padding: var(--space-16) 0; border-bottom: 1px solid var(--border-default);
-}
-.story .step {
-  display: inline-block; font-family: var(--font-mono); font-size: .78rem;
-  color: var(--accent-press); background: var(--accent-muted); padding: 3px 10px;
-  border-radius: var(--radius-sm); margin-bottom: var(--space-4); font-weight: 500;
 }
 .story h2 {
   font-family: var(--font-display); font-weight: 600;
@@ -97,9 +92,9 @@ main { padding: var(--space-6) 0 var(--space-10); }
 .drivers { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-5); }
 .driver { background: var(--surface-card); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
 .driver .dv { font-weight: 200; font-variant-numeric: tabular-nums; font-size: 1.1rem; color: var(--ink-900); }
-.driver .dl { font-size: .72rem; color: var(--text-muted); margin-top: 2px; }
-.driver.is-general { border-left: 3px solid var(--data-1); }
-.driver.is-special { border-left: 3px solid var(--accent); }
+.driver .dl { display: flex; align-items: center; gap: 6px; font-size: .72rem; color: var(--text-secondary); margin-top: 2px; }
+.driver .dl::before { content: ''; width: 7px; height: 7px; border-radius: var(--radius-full); flex: none; background: var(--data-1); }
+.driver.is-special .dl::before { background: var(--accent); }
 
 /* ---------- Tables ---------- */
 .tablewrap { overflow-x: auto; }
@@ -119,11 +114,12 @@ td.num { font-family: var(--font-mono); font-weight: 400; font-variant-numeric: 
 
 /* ---------- Caveat (caution — warning semantic) ---------- */
 .caveat {
-  background: var(--warning-bg); border: 1px solid var(--warning); border-left: 3px solid var(--warning);
+  background: var(--warning-bg); border: 1px solid var(--warning);
   border-radius: var(--radius-md); padding: var(--space-4); font-size: .9rem; color: var(--ink-800) !important;
 }
 .caveat strong { color: var(--accent-press); }
 #s-projection .viz { display: grid; gap: var(--space-5); }
+.load-error { color: var(--text-muted); font-size: .9rem; text-align: center; padding: var(--space-8) var(--space-4); }
 
 /* ---------- Footer (dark) ---------- */
 footer { background: var(--ink-950); color: var(--ink-300); padding: var(--space-12) 0 var(--space-16); margin-top: var(--space-5); }
